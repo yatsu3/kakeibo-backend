@@ -1,0 +1,26 @@
+# Java関連
+*.class
+*.jar
+*.war
+*.ear
+
+# ログファイル
+*.log
+
+# IDE設定ファイル
+/.idea/
+/*.iml
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db
+
+# Mavenのターゲットディレクトリ
+/target/
+
+# Node.jsモジュール
+/node_modules/
+
+# その他の一時ファイル
+*.tmp
+*.swp
