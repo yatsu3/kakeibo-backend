@@ -1,0 +1,7 @@
+{
+    "java.configuration.autoImport.package": "always",
+    "java.referencesCodeLens.enabled": true,
+    "java.codeGeneration.generateToString": true,
+    "java.codeGeneration.generateEqualsAndHashCode": true,
+    "java.codeGeneration.generateGettersAndSetters": true
+  }
