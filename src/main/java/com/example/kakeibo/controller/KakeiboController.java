@@ -1,0 +1,25 @@
+package com.example.kakeibo.controller;
+import com.example.kakeibo.application.KakeiboUsecase;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+public class KakeiboController {
+    @Autowired
+    KakeiboUsecase usecase;
+
+    @PostMapping(value="/register-kakeibo")
+    public void registerInfo(@RequestBody Map<String, Object> requestBody) {
+
+        String date = (String)requestBody.get("date");
+        String contents = (String)requestBody.get("contents");
+        String category = (String)requestBody.get("category");
+        String expenditure = (String)requestBody.get("expenditure");
+
+        usecase.registerKakeibo(date, contents, category, expenditure);
+
+    }
+
+}
