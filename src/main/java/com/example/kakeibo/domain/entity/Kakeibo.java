@@ -10,9 +10,10 @@ public class Kakeibo {
     private final LocalDate date;
     private final String contents;
     private final String category;
-    private final int expenditure;
+    private final int subTotal;
+    private final boolean isExpenses;
 
-    public Kakeibo(int id, String date, String contents, String category, String expenditure) {
+    public Kakeibo(int id, String date, String contents, String category, String subTotal, boolean isExpenses) {
         
         // yyyy-mm-ddの形式に変換
         LocalDateTime localDateTime = LocalDateTime.parse(date, DateTimeFormatter.ISO_DATE_TIME);
@@ -22,6 +23,7 @@ public class Kakeibo {
         this.date = localDate;
         this.contents = contents;
         this.category = category;
-        this.expenditure = Integer.parseInt(expenditure);
+        this.subTotal = Integer.parseInt(subTotal);
+        this.isExpenses = isExpenses;
 	}
 }

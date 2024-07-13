@@ -13,10 +13,10 @@ public class KakeiboService {
     @Autowired
     KakeiboMapper mapper;
     
-    public void registerKakeibo(String date, String contents, String category, String expenditure) {
+    public void registerKakeibo(String date, String contents, String category, String subTotal, boolean isExpenses) {
         int id = mapper.getNextId();
 
-        Kakeibo kakeibo = new Kakeibo(id, date, contents, category, expenditure);
+        Kakeibo kakeibo = new Kakeibo(id, date, contents, category, subTotal, isExpenses);
         repository.registerKakeibo(kakeibo);
     }
 }

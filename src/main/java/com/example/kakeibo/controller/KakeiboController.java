@@ -16,9 +16,10 @@ public class KakeiboController {
         String date = (String)requestBody.get("date");
         String contents = (String)requestBody.get("contents");
         String category = (String)requestBody.get("category");
-        String expenditure = (String)requestBody.get("expenditure");
+        String subTotal = (String)requestBody.get("subTotal");
+        boolean isExpenses = (boolean)requestBody.get("isExpenses");
 
-        usecase.registerKakeibo(date, contents, category, expenditure);
+        usecase.registerKakeibo(date, contents, category, subTotal, isExpenses);
 
     }
 
