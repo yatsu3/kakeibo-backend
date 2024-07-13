@@ -11,6 +11,6 @@ public interface KakeiboMapper {
     @Select("SELECT nextval('kakeibo_sequence')")
     int getNextId();
     
-    @Insert("INSERT INTO KAKEIBO (id, date, contents, category, expenditure) VALUES (#{kakeibo.id}, #{kakeibo.date}, #{kakeibo.contents}, #{kakeibo.category}, #{kakeibo.expenditure})")
+    @Insert("INSERT INTO KAKEIBO (id, date, contents, category, sub_total, isExpenses) VALUES (#{kakeibo.id}, #{kakeibo.date}, #{kakeibo.contents}, #{kakeibo.category}, #{kakeibo.subTotal}, #{kakeibo.isExpenses})")
     void insertKakeibo(@Param("kakeibo") Kakeibo kakeibo);
 }

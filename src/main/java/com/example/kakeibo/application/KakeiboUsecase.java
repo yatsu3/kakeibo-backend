@@ -9,7 +9,7 @@ public class KakeiboUsecase {
     @Autowired
     KakeiboService service;
 
-    public void registerKakeibo(String date, String contents, String category, String expenditure) {
-        service.registerKakeibo(date, contents, category, expenditure);
+    public void registerKakeibo(String date, String contents, String category, String subTotal, boolean isExpenses) {
+        service.registerKakeibo(date, contents, category, subTotal, isExpenses);
     }
 }
