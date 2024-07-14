@@ -1,7 +1,10 @@
 package com.example.kakeibo.controller;
 import com.example.kakeibo.application.KakeiboUsecase;
+import com.example.kakeibo.infrastructure.KakeiboDto;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +24,11 @@ public class KakeiboController {
 
         usecase.registerKakeibo(date, contents, category, subTotal, isExpenses);
 
+    }
+
+    @GetMapping(value="/report")
+    public List<KakeiboDto> getReport() {
+        return usecase.getReport();
     }
 
 }
