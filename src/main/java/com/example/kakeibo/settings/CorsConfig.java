@@ -1,4 +1,4 @@
-package com.example.kakeibo.config;
+package com.example.kakeibo.settings;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
