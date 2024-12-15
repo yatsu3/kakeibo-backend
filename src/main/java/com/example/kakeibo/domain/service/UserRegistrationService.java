@@ -1,5 +1,6 @@
 package com.example.kakeibo.domain.service;
 import com.example.kakeibo.domain.repository.IUserRegistrationRepository;
+import com.example.kakeibo.infrastructure.UserDto;
 import com.example.kakeibo.presentation.request.UserRegistrationRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,14 +11,21 @@ public class UserRegistrationService {
     @Autowired
     IUserRegistrationRepository repository;
     
-    public void registerUser(UserRegistrationRequest request) throws Exception {
+    public void registerUser(UserRegistrationRequest request, String userId) throws Exception {
 
-        // すでに存在するメールアドレスがある場合、エラー
-        boolean isUserExists = repository.isUserExists(request.getMailAddress());
-        if (isUserExists) {
-            throw new Exception("ユーザーはすでに入力したメールアドレスで登録されています。");
-        }
-        
-        repository.registerUser(request);
+        try {
+            if (repository.isUserExist(userId)) {
+                System.out.println("true");
+                repository.updateUser(request, userId);
+            } else {
+                repository.insertUser(request, userId);
+            }
+        } catch(Exception e) {
+            throw new Exception("ユーザー情報の更新に失敗しました。");
+        }        
+    }
+
+    public UserDto getUser(String firebaseId) {
+        return repository.getUser(firebaseId);
     }
 }
